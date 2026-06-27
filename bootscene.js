@@ -13,36 +13,40 @@ class BootScene extends Phaser.Scene {
     preload() {
 
         // ===================================
-        // BASIC LOADING SCREEN (TEXT ONLY)
+        // LOADING UI
         // ===================================
 
         let width = this.cameras.main.width;
         let height = this.cameras.main.height;
 
-        let loadingText = this.add.text(width / 2, height / 2, "Loading...", {
+        let loadingText = this.add.text(width / 2, height / 2, "Loading... 0%", {
             font: "20px Arial",
             fill: "#ffffff"
-        }).setOrigin(0.5, 0.5);
+        }).setOrigin(0.5);
 
-        // Simulated loading bar effect
+        // Progress update
         this.load.on("progress", (value) => {
-            loadingText.setText("Loading... " + parseInt(value * 100) + "%");
+            loadingText.setText("Loading... " + Math.floor(value * 100) + "%");
+        });
+
+        this.load.on("complete", () => {
+            loadingText.setText("Press Start...");
         });
 
         // ===================================
-        // PLACEHOLDER ASSETS (NEXT PARTS)
+        // ASSETS (SAFE PLACEHOLDERS)
         // ===================================
 
-        // Player sprites (placeholder)
+        // Player
         this.load.image("player", "assets/sprites/player.png");
 
-        // Milca sprite (placeholder)
+        // Milca
         this.load.image("milca", "assets/sprites/milca.png");
 
-        // Tileset placeholder (school)
+        // School map placeholder
         this.load.image("schoolTiles", "assets/maps/school.png");
 
-        // UI click sound (placeholder)
+        // UI sound
         this.load.audio("click", "assets/sounds/click.mp3");
 
     }
@@ -51,12 +55,21 @@ class BootScene extends Phaser.Scene {
 
         console.log("BootScene Loaded");
 
-        // Scale setup (pixel-perfect feel)
+        // ===================================
+        // PIXEL / SCALE SETUP
+        // ===================================
+
         this.scale.scaleMode = Phaser.Scale.FIT;
         this.scale.centerOnResize = true;
 
-        // Smooth transition delay
-        this.time.delayedCall(1000, () => {
+        // background color fallback
+        this.cameras.main.setBackgroundColor("#000000");
+
+        // ===================================
+        // AUTO TRANSITION
+        // ===================================
+
+        this.time.delayedCall(1500, () => {
 
             this.scene.start("SchoolScene");
 
@@ -65,3 +78,6 @@ class BootScene extends Phaser.Scene {
     }
 
 }
+
+// IMPORTANT GLOBAL FIX
+window.BootScene = BootScene;
