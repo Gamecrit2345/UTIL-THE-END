@@ -25,230 +25,107 @@
 
 <body>
 
-<!-- ========================================= -->
 <!-- OPENING -->
-<!-- ========================================= -->
-
 <div id="opening">
-
     <div id="company">
-
         <h1>PIXELINDI</h1>
-
         <p>Presented by</p>
-
         <p>PIXELINDI</p>
-
         <p>2015</p>
-
     </div>
-
 </div>
 
-<!-- ========================================= -->
 <!-- CREATOR -->
-<!-- ========================================= -->
-
 <div id="creator" class="hidden">
-
     <h2>Created by</h2>
-
     <h1>Denton Sagmayao</h1>
-
 </div>
 
-<!-- ========================================= -->
 <!-- TITLE -->
-<!-- ========================================= -->
-
 <div id="titleScreen" class="hidden">
-
     <h1 class="gameTitle">
-
         UNTIL THEN
-
         <span>MILCA</span>
-
     </h1>
 
-    <p class="pressKey">
-
-        PRESS ANY KEY
-
-    </p>
-
+    <p class="pressKey">PRESS ANY KEY</p>
 </div>
 
-<!-- ========================================= -->
 <!-- MAIN MENU -->
-<!-- ========================================= -->
-
 <div id="mainMenu" class="hidden">
 
-    <button id="newGame">
-
-        Bagong Laro
-
-    </button>
-
-    <button id="continueGame">
-
-        Magpatuloy
-
-    </button>
-
-    <button id="settings">
-
-        Settings
-
-    </button>
-
-    <button id="credits">
-
-        Credits
-
-    </button>
-
-    <button id="exit">
-
-        Exit
-
-    </button>
+    <button id="newGame">Bagong Laro</button>
+    <button id="continueGame">Magpatuloy</button>
+    <button id="settings">Settings</button>
+    <button id="credits">Credits</button>
+    <button id="exit">Exit</button>
 
 </div>
 
-<!-- ========================================= -->
 <!-- GAME -->
-<!-- ========================================= -->
-
 <div id="gameContainer" class="hidden">
-
     <canvas id="gameCanvas"></canvas>
-
 </div>
 
-<!-- ========================================= -->
 <!-- DIALOGUE -->
-<!-- ========================================= -->
-
 <div id="dialogueBox" class="hidden">
-
-    <div id="speaker">
-
-        Matt
-
-    </div>
-
-    <div id="dialogueText">
-
-        ...
-
-    </div>
-
-    <button id="nextDialogue">
-
-        ▶
-
-    </button>
-
+    <div id="speaker">Matt</div>
+    <div id="dialogueText">...</div>
+    <button id="nextDialogue">▶</button>
 </div>
 
-<!-- ========================================= -->
 <!-- CHOICES -->
-<!-- ========================================= -->
-
 <div id="choiceBox" class="hidden">
-
     <button class="choiceButton"></button>
-
     <button class="choiceButton"></button>
-
 </div>
 
-<!-- ========================================= -->
 <!-- PAUSE -->
-<!-- ========================================= -->
-
 <div id="pauseMenu" class="hidden">
-
     <h2>PAUSE</h2>
-
     <button>Resume</button>
-
     <button>Save</button>
-
     <button>Load</button>
-
     <button>Main Menu</button>
-
 </div>
 
-<!-- ========================================= -->
 <!-- CREDITS -->
-<!-- ========================================= -->
-
 <div id="creditsScreen" class="hidden">
-
     <h1>CREDITS</h1>
 
     <p>Created by</p>
-
     <h2>Denton Sagmayao</h2>
 
     <br>
 
     <p>Programming</p>
-
-    <p>HTML</p>
-
-    <p>CSS</p>
-
-    <p>JavaScript</p>
-
-    <br>
-
-    <p>Story</p>
-
-    <p>Original Story</p>
-
-    <br>
-
-    <p>Pixel Art</p>
-
-    <p>Original Assets</p>
-
-    <br>
-
-    <p>Music</p>
-
-    <p>Original Music</p>
+    <p>HTML / CSS / JavaScript</p>
 
     <br>
 
     <p>Company</p>
-
     <h2>PIXELINDI</h2>
 
-    <button id="back">
-
-        BACK
-
-    </button>
-
+    <button id="back">BACK</button>
 </div>
 
-<!-- ========================================= -->
 <!-- AUDIO -->
-<!-- ========================================= -->
-
 <audio id="bgm" loop></audio>
-
 <audio id="sfx"></audio>
 
 <!-- ========================================= -->
-<!-- JAVASCRIPT -->
+<!-- GAME ENGINE (IMPORTANT FIXED ORDER) -->
 <!-- ========================================= -->
 
+<!-- Phaser -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+
+<!-- Scenes -->
+<script src="js/scenes/BootScene.js"></script>
+<script src="js/scenes/SchoolScene.js"></script>
+
+<!-- Core Game -->
+<script src="js/game.js"></script>
 <script src="js/main.js"></script>
 
 </body>
